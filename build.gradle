@@ -36,14 +36,11 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	// spock
-	testImplementation 'org.spockframework:spock-core:2.3-groovy-4.0'
-	testImplementation 'org.spockframework:spock-spring:2.3-groovy-4.0'
+	testImplementation 'org.spockframework:spock-core:2.4-M1-groovy-4.0'
+	testImplementation 'org.spockframework:spock-spring:2.4-M1-groovy-4.0'
 
 	// 런타임에 클래스 기반 spock mock을 만들기 위해서 필요
 	testImplementation('net.bytebuddy:byte-buddy:1.14.12')
-
-	// https://mvnrepository.com/artifact/org.testcontainers/spock
-	testImplementation 'org.testcontainers:spock:1.19.6'
 
 	// https://mvnrepository.com/artifact/org.testcontainers/mariadb
 	testImplementation 'org.testcontainers:mariadb:1.19.6'
