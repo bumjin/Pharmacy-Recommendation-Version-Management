@@ -1,6 +1,5 @@
-package com.example.demo.api.dto;
+package com.example.demo.pharmacy;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,13 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class DocumentDto {
-    @JsonProperty("address_name")
-    private String addressName;
-
-    @JsonProperty("y")
+public class PharmacyDto {
+    private Long id;
+    private String pharmacyName;
+    private String pharmacyAddress;
     private double latitude;
-
-    @JsonProperty("x")
     private double longitude;
 }
