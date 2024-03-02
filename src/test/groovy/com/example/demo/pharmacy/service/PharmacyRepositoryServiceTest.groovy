@@ -4,6 +4,7 @@ import com.example.demo.AbstractractIntegrationContainerBaseTest
 import com.example.demo.pharmacy.entity.Pharmacy
 import com.example.demo.pharmacy.repository.PharmacyRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.transaction.annotation.Transactional
 
 class PharmacyRepositoryServiceTest extends AbstractractIntegrationContainerBaseTest {
     @Autowired
@@ -63,4 +64,6 @@ class PharmacyRepositoryServiceTest extends AbstractractIntegrationContainerBase
         then:
             result.get(0).getPharmacyAddress() == address
     }
+
+
 }

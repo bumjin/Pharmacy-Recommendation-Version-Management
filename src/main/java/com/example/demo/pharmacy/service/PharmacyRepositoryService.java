@@ -2,13 +2,12 @@ package com.example.demo.pharmacy.service;
 
 import com.example.demo.pharmacy.entity.Pharmacy;
 import com.example.demo.pharmacy.repository.PharmacyRepository;
-import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ObjectUtils;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Objects;
 
 @Slf4j
@@ -39,5 +38,10 @@ public class PharmacyRepositoryService {
         }
 
         entity.changePharmacyAddress(address);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Pharmacy> findAll() {
+        return pharmacyRepository.findAll();
     }
 }
