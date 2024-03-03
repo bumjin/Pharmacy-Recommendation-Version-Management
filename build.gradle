@@ -59,6 +59,9 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.github.sps.mustache/mustache-spring-view
 	implementation 'com.github.sps.mustache:mustache-spring-view:1.4'
 
+	// https://github.com/seruco/base62
+	implementation 'io.seruco.encoding:base62:0.1.3'
+
 
 }
 
