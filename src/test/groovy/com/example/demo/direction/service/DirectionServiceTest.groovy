@@ -11,7 +11,8 @@ class DirectionServiceTest extends Specification {
 
     private  DirectionService directionService = new DirectionService(pharmacySearchService)
 
-    private List<PharmacyDto> pharmacyList
+    private List<PharmacyDto> pharmacyList;
+
 
     def setup() {
         pharmacyList = new ArrayList<>()

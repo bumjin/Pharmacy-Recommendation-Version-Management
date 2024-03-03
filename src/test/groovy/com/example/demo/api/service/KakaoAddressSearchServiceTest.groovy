@@ -2,7 +2,6 @@ package com.example.demo.api.service
 
 import com.example.demo.AbstractractIntegrationContainerBaseTest
 import org.springframework.beans.factory.annotation.Autowired
-import spock.lang.Specification
 
 class KakaoAddressSearchServiceTest extends AbstractractIntegrationContainerBaseTest {
 
@@ -28,9 +27,9 @@ class KakaoAddressSearchServiceTest extends AbstractractIntegrationContainerBase
         def result = kakaoAddressSearchService.requestAddressSearch(address)
 
         then:
-        result.documentDtoList.size() > 0
+        result.documentList.size() > 0
         result.metaDto.totalCount > 0
-        result.documentDtoList.get(0).addressName != null
+        result.documentList.get(0).addressName != null
 
     }
 }
