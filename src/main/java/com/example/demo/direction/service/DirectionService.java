@@ -61,7 +61,7 @@ public class DirectionService {
         if(Objects.isNull(inputDocumentDto)) return Collections.emptyList();
         // 약국 데이터 조회
         return kakaoCategorySearchService
-                .requestPharmacyCategorySearch(inputDocumentDto.getLatitude(), inputDocumentDto.getLongitude(), RADIUS_KM)
+                .requestPharmacyCategorySearch(inputDocumentDto.getLatitude(), inputDocumentDto.getLongitude(), RADIUS_KM * 1000)
                 .getDocumentList()
                 .stream().map(resultDocumentDto ->
                         Direction.builder()
