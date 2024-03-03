@@ -1,9 +1,10 @@
-package com.example.demo.direction.service;
+package com.example.demo.pharmacy.service;
 
 import com.example.demo.api.dto.DocumentDto;
 import com.example.demo.api.dto.KakaoApiResponseDto;
 import com.example.demo.api.service.KakaoAddressSearchService;
 import com.example.demo.direction.entity.Direction;
+import com.example.demo.direction.service.DirectionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,8 @@ public class PharmacyRecommendationService {
 
         DocumentDto documentDto = kakaoApiResponseDto.getDocumentList().get(0);
 
-        List<Direction> directionList = directionService.buildDirectionList(documentDto);
+        //List<Direction> directionList = directionService.buildDirectionList(documentDto);
+        List<Direction> directionList = directionService.buildDirectionListByCategoryApi(documentDto);
 
         directionService.saveAll(directionList);
 
