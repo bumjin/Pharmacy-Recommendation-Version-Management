@@ -42,13 +42,13 @@ spring:
       port: 6378
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
     show-sql: true
 
 pharmacy:
   recommendation:
     base:
-      url:  http://localhost:8080/dir
+      url:  http://localhost:8080/dir/
 # ...
 ---
 spring:

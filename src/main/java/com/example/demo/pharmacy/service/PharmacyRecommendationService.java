@@ -58,7 +58,7 @@ public class PharmacyRecommendationService {
         return OutputDto.builder()
                 .pharmacyName(direction.getTargetPharmacyName())
                 .pharmacyAddress(direction.getTargetAddress())
-                .directionUrl(baseUrl + "/" + base62Service.encodeDirectionId(direction.getId()))
+                .directionUrl(baseUrl + base62Service.encodeDirectionId(direction.getId()))
                 .roadViewUrl(ROAD_VIEW_BASE_URL + direction.getTargetLatitude() + "," + direction.getTargetLongitude())
                 .distance(String.format("%.2f km", direction.getDistance()))
                 .build();
