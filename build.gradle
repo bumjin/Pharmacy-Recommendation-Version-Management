@@ -78,3 +78,8 @@ processTestResources {
 		expand(project.properties)
 	}
 }
+
+apply plugin : 'java'
+test {
+	testLogging.showStandardStreams = true
+}
