@@ -24,8 +24,6 @@ public class FormController {
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("output");
-        System.out.println("address:" + inputDto.getAddress());
-        System.out.println("size:" + pharmacyRecommendationService.recommendPharmacyList(inputDto.getAddress()).size());
         modelAndView.addObject("outputFormList",
                 pharmacyRecommendationService.recommendPharmacyList(inputDto.getAddress()));
 
