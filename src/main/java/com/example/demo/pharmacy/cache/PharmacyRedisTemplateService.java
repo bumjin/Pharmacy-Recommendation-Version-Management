@@ -1,6 +1,6 @@
 package com.example.demo.pharmacy.cache;
 
-import com.example.demo.pharmacy.PharmacyDto;
+import com.example.demo.pharmacy.dto.PharmacyDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;

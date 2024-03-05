@@ -1,18 +1,18 @@
 package com.example.demo.pharmacy.controller;
 
-import com.example.demo.pharmacy.PharmacyDto;
+import com.example.demo.pharmacy.dto.PharmacyDto;
 import com.example.demo.pharmacy.cache.PharmacyRedisTemplateService;
 import com.example.demo.pharmacy.service.PharmacyRepositoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Controller
+@RestController
 @RequiredArgsConstructor
 public class PharmacyController {
     private final PharmacyRepositoryService pharmacyRepositoryService;
