@@ -78,7 +78,7 @@ class PharmacyRepositoryTest extends AbstractractIntegrationContainerBaseTest {
         def result = pharmacyRepository.findAll()
 
         then:
-        result.get(0).getCreateDate().isAfter(now)
+        result.get(0).getCreatedDate().isAfter(now)
         result.get(0).getModifiedDate().isAfter(now)
     }
 }

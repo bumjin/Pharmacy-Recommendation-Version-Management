@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  pharmacy-recommendation-redis:
+    container_name: pharmacy-recommendation-redis
+    build:
+      dockerfile: Dockerfile
+      context: ./redis
+    image: bumjin/pharmacy-recommendation-redis
+    ports:
+      - "6379:6379"
+  pharmacy-recommendation-database:
+    container_name: pharmacy-recommendation-database
+    build:
+      dockerfile: Dockerfile
+      context: ./database
+    image: bumjin/pharmacy-recommendation-database
+    environment:
+      - MARIADB_DATABASE=pharmacy-recommendation
+      - MARIADB_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+    volumes:
+      - ./database/config:/etc/mysql/conf.d
+      - ./database/init:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"      # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
+  pharmacy-recommendation-app:
+    container_name: pharmacy-recommendation-app
+    build: .
+    depends_on:
+      - pharmacy-recommendation-database
+      - pharmacy-recommendation-redis
+    image: bumjin/pharmacy-recommendation-app
+    environment:
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+      - KAKAO_REST_API_KEY=${KAKAO_REST_API_KEY}
+    volumes:
+      - ./database/config:/etc/mysql/conf.d
+      - ./database/init:/docker-entrypoint-initdb.d
+    ports:
+      - "80:8080"      # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
+    restart: always # depends on은 실행 순서만 컨트롤 할 뿐,
+    #컨테이너 안의 서비스가 실행 가능한 상태인지까지는 확인하지 않기 때문에
+    # DB 또는 Redis가 아직 실행 가능한 상태가 아니여서 실패하는 경우 재시작 하도록 설정
