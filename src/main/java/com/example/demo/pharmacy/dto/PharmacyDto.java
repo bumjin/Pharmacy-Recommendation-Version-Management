@@ -1,4 +1,4 @@
-package com.example.demo.pharmacy;
+package com.example.demo.pharmacy.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

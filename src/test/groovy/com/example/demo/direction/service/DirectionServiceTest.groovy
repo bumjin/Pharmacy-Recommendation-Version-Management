@@ -3,7 +3,7 @@ package com.example.demo.direction.service
 import com.example.demo.api.dto.DocumentDto
 import com.example.demo.api.service.KakaoCategorySearchService
 import com.example.demo.direction.repository.DirectionRepository
-import com.example.demo.pharmacy.PharmacyDto
+import com.example.demo.pharmacy.dto.PharmacyDto
 import com.example.demo.pharmacy.service.PharmacySearchService
 import spock.lang.Specification
 
